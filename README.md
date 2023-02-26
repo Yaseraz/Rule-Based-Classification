@@ -4,7 +4,7 @@ Introduction
 Rule-based classification is a machine learning method that enables classification of given features based on a specific set of rules. This method is used to classify new data based on a predetermined set of rules.
 
 
-## BUISSINES PROBLEM
+## BUSINESS PROBLEM
 
 A game company wants to estimate any new customer will how much averages income brings to that company.
 Therefore, the company wants us to create level-based new customer definitions and use some features of
