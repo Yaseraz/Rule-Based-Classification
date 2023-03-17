@@ -18,9 +18,11 @@ average income for new customers according to these segments.
 of the users who bought these products. The dataset consists of records generated for each sales transaction. This means that the table
 is not singularized. In other words, a user with certain demographic characteristics may have made multiple purchases.
 
-* Price: Amount spent by the customer
-* Source: Type of device the customer connected to
-* Sex: Gender of the customer
-* Country: Country of the customer
-* Age: Age of the customer
+| Column | Description | Data Type |
+|--------|-------------|-----------|
+| Price | Amount spent by the customer | Numeric |
+| Source | Type of device the customer connected to | Nominal |
+| Sex | Gender of the customer | Nominal |
+| Country | Country of the customer | Nominal |
+| Age | Age of the customer | Numeric |
 
