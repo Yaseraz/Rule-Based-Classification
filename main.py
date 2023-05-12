@@ -7,6 +7,7 @@
 #############################
 
 import pandas as pd
+from typing import Tuple
 
 pd.set_option("display.max_rows", None)
 pd.set_option("display.max_columns", None)
@@ -19,18 +20,39 @@ df = persona.copy()
 #          EDA
 #############################
 
-def check_df(dataframe,hd=5):
-    print(dataframe.head(hd))
-    print("#"*40  + "Columns" + "#"*40)
-    print(dataframe.columns)
-    print("#"*40  + "Shape" + "#"*40)
-    print(dataframe.shape)
-    print("#" * 40 + "Describe" + "#" *35)
-    print(dataframe.describe().T)
-    print("#" * 40 + "Na" + "#" * 35)
-    print(dataframe.isnull().sum())
-    print("#" * 40 + "Info" + "#" * 35)
-    print(dataframe.info())
+def check_df(dataframe: pd.DataFrame, shape: bool = True, columns: bool = True,
+             info: bool = True, na: bool = True, desc: bool = True) -> Tuple:
+    """
+    This function checks DataFrame's Descriptions
+
+    :param dataframe: A pandas dataframe
+    :param shape: checks Dataframe's Shape
+    :param columns: Prints Columns Names
+    :param info: Prints Columns types
+    :param na: Count and prints NaN values in DataFrame
+    :param desc: Prints DataFrame's Descriptions
+            like min, max, first, second, third quantile, Variance and Mean values
+    :return: Data frame's Shape,
+            Names of DataFrame's columns, DataFrame's columns Type,
+            how many NA values in DataFrame, Descriptive Stats
+    """
+    outputs = []
+    if shape:
+        outputs.append(('Shape', dataframe.shape))
+    if columns:
+        outputs.append(('Columns', dataframe.columns))
+    if info:
+        outputs.append(('Types', dataframe.dtypes))
+    if na:
+        outputs.append(('NA', dataframe.isnull().sum()))
+    if desc:
+        outputs.append(('Descriptive', dataframe.describe().T))
+    for output in outputs:
+        print(15 * "#", output[0], 15 * "#")
+        print(output[1], "\n")
+
+    return tuple(outputs)
+
 
 check_df(df)
 
